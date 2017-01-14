@@ -47,7 +47,7 @@ gulp.task('less', function() {
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./css'))
         .pipe($.notify({
-            message: 'Styles task complete'
+            message: 'Styles task complete', onLast: true
         }));
 });
 
