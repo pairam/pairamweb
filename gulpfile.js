@@ -52,7 +52,7 @@ gulp.task('less', function() {
 });
 
 // SASS Build task
-gulp.task('less:build', function() {
+gulp.task('lessbuild', function() {
     var s = $.size();
 
     return gulp.src('./less/style.less')
@@ -61,7 +61,7 @@ gulp.task('less:build', function() {
         }))
         .pipe($.autoprefixer('last 3 version'))
         .pipe($.minifyCss({
-            keepBreaks: true,
+            keepBreaks: false,
             aggressiveMerging: false,
             advanced: false
         }))
