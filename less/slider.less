@@ -1,0 +1,40 @@
+// Colors
+
+// Fonts
+
+// Rest
+.slider {
+    position: relative;
+    img{
+        @media @smallest{
+            display: none;
+        }
+    }
+    
+}
+.infoText {
+    position: absolute;
+    top: 152px;
+    z-index: 90;
+    font-size: 2em;
+    left: 7%;
+    line-height: 0.875em;
+    color: @c_white2;
+    font-weight: 300;
+    strong {
+        color: @c_yellow;
+    }
+    @media screen and (max-width: 1100px) {
+        top: 132px;
+    }
+    @media @middle{
+        display: none;
+    }
+                    
+}
+
+.slick-slide {
+    @media @smallest{
+        max-height: 150px;
+    }
+}

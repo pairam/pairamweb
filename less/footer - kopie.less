@@ -1,0 +1,147 @@
+// Colors
+
+// Fonts
+
+// Rest
+footer {
+    background: black;
+    color: @c_white2;
+    position: relative;
+    overflow: hidden;
+    .top {
+        height: 127px;
+        z-index: 50;
+        position: relative;
+        &:after {
+            .show;
+            width: 100%;
+            height: 22px;
+            position: absolute;
+            left: 0px;
+            background: url('../images/afterAbout.png') no-repeat left bottom;
+            bottom: -21px;
+        }
+        .title {
+            padding-top: 54px;
+            color: @c_yellow;
+            .loraBold;
+            font-size: 2.5em;
+            max-width: 50%;
+            float: left;
+            h2 {
+                display: none;
+                &:first-of-type {
+                    display: block;
+                }
+            }
+        }
+    }
+    .bottom {
+        position: relative;
+        height: 582px;
+        z-index: 49;
+        .picture {
+            height: 100%;
+            background: white;
+            position: absolute;
+            right: 0;
+            width: 100%;
+            top: 0;
+            #map-canvas {
+                height: 100%;
+                width: calc(~"31.6% + 583px");
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+        }
+        .one {
+            height: 582px;
+            position: relative;
+        }
+        .buttonBlack {
+            margin-bottom: 35px;
+        }
+        .text {
+            position: relative;
+            background: black;
+            //width: 89.72%;
+            min-width: 480px;
+            width: calc(~"68.4% - 583px");
+            box-sizing: border-box;
+            padding-left: 7%;
+            z-index: 2;
+            height: 582px;
+            .rotate {
+                padding-top: 100px;
+                z-index: 2;
+                position: relative;
+                width: 105%;
+                p {
+                    .opacity(0.91);
+                    color: @c_white2;
+                    .bold;
+                    line-height: 1.2em;
+                    margin-bottom: 25px;
+                    font-size: 1.125em;
+                    &.bold {
+                        font-size: 1.3125em;
+                        .loraBold;
+                    }
+                    a {
+                        line-height: 1.73em;
+                        display: block;
+                        text-decoration: underline;
+                        span {
+                            .light;
+                        }
+                    }
+                }
+                .left {
+                    width: 48%;
+                    float: left;
+                }
+                .right {
+                    width: 48%;
+                    float: right;
+                }
+                h3 {
+                    color: @c_yellow;
+                    .loraBold;
+                    .opacity(0.91);
+                    margin-bottom: 25px;
+                    font-size: 1.5em;
+                }
+                .phone {
+                    color: @c_yellow;
+                    .loraBold;
+                    .opacity(0.91);
+                    display: block;
+                    margin-bottom: 35px;
+                    font-size: 1.5em;
+                }
+            }
+            &:after {
+                .show;
+                z-index: 1;
+                width: 583px;
+                height: 100%;
+                top: 0;
+                position: absolute;
+                left: 100%;
+                background: url('../images/afterTriangle.png') no-repeat;
+            }
+        }
+    }
+    .bottomFooter {
+        .clearfix;
+        background: @c_gray;
+        padding: 37px 0 50px;
+        .copyright {
+            float: left;
+        }
+        .created {
+            float: right;
+        }
+    }
+}

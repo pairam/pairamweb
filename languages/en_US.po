@@ -1,0 +1,197 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pairam\n"
+"POT-Creation-Date: 2016-07-27 22:43+0200\n"
+"PO-Revision-Date: 2016-07-27 22:43+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: archive-reference.php:53 front-page.php:209 front-page.php:234
+#: single-service.php:69 single-service.php:74 single-service.php:100
+#: taxonomy-kategorie.php:44
+#: zalohaCSS/taxonomy-kategorie-osvetleni-prodejen.php:45
+msgid "Reference"
+msgstr "References"
+
+#: archive-reference.php:79 clanky.php:54 taxonomy-kategorie.php:75
+#: zalohaCSS/taxonomy-kategorie-osvetleni-prodejen.php:74
+msgid "Více"
+msgstr "More"
+
+#: archive-reference.php:87 single-service.php:117 taxonomy-kategorie.php:83
+#: zalohaCSS/taxonomy-kategorie-osvetleni-prodejen.php:85
+msgid "Připravuje se"
+msgstr "In preparation"
+
+#: clanky.php:16
+msgid "Články"
+msgstr "Articles"
+
+#: clanky.php:33
+msgid "Blog"
+msgstr "Blog"
+
+#: clanky.php:36
+msgid "Článek"
+msgstr "Article"
+
+#: clanky.php:39
+msgid "Video"
+msgstr "Video"
+
+#: clanky.php:42
+msgid "Fotografie"
+msgstr "Photos"
+
+#: footer.php:14
+msgid "Kontakt"
+msgstr "Contact"
+
+#: footer.php:24 single-service.php:33
+msgid "Tel:"
+msgstr "Tel:"
+
+#: footer.php:25 single-service.php:34
+msgid "E-mail:"
+msgstr "E-mail:"
+
+#: footer.php:27
+msgid "Adresa:"
+msgstr "Address:"
+
+#: footer.php:36
+msgid "Zobrazit na mapě"
+msgstr "Show on the map"
+
+#: footer.php:40
+msgid "Fakturační údaje:"
+msgstr "Billing information:"
+
+#: footer.php:43
+msgid "IČ:"
+msgstr "Company ID:"
+
+#: footer.php:44
+msgid "DIČ:"
+msgstr "UID:"
+
+#: footer.php:59
+msgid "Poptávka"
+msgstr "Demand"
+
+#: footer.php:63 front-page.php:78
+msgid "Lidé"
+msgstr "People"
+
+#: footer.php:65
+msgid "Lidé:"
+msgstr "People:"
+
+#: front-page.php:32
+msgid "Dále"
+msgstr "More"
+
+#: front-page.php:77
+msgid "Kdo jsme a co děláme"
+msgstr "Who we are and what we do"
+
+#: front-page.php:80
+msgid "Náš příběh"
+msgstr "Our story"
+
+#: front-page.php:82
+msgid "Kariéra"
+msgstr "Career"
+
+#: front-page.php:132
+msgid "email:"
+msgstr "email:"
+
+#: front-page.php:135
+msgid "tel:"
+msgstr "phone:"
+
+#: front-page.php:231 single-service.php:97
+msgid "Předchozí"
+msgstr "Previous"
+
+#: front-page.php:231 single-service.php:97
+msgid "Další"
+msgstr "Next"
+
+#: functions.php:3
+msgid "Hlavní menu"
+msgstr "Main menu"
+
+#: functions.php:4
+msgid "Sekundární menu"
+msgstr "Secondary menu"
+
+#: functions.php:8
+msgid "Jazyky"
+msgstr "Languages"
+
+#: header.php:63
+msgid "Poptávkový formulář"
+msgstr "Demand form"
+
+#: header.php:64
+msgid "Po odeslání této nezávazné poptávky vás budeme kontaktovat."
+msgstr "After submitting this non-binding demand will we contact you."
+
+#: single-reference - kopie.php:36 single-reference.php:22
+#: single-reference_bkp_160416_2049.php:36
+msgid "Realizováno:"
+msgstr "Realized:"
+
+#: single-reference - kopie.php:37 single-reference.php:23
+#: single-reference_bkp_160416_2049.php:37
+msgid "Klient:"
+msgstr "Client:"
+
+#: single-reference - kopie.php:38 single-reference.php:24
+#: single-reference_bkp_160416_2049.php:38
+msgid "Místo realizace:"
+msgstr "Place of realization:"
+
+#: single-reference - kopie.php:44 single-reference.php:32
+#: single-reference_bkp_160416_2049.php:46
+msgid "Před realizací"
+msgstr "Before realization"
+
+#: single-reference - kopie.php:50 single-reference.php:40
+#: single-reference_bkp_160416_2049.php:54
+msgid "Po realizaci"
+msgstr "After realization"
+
+#: single-service.php:32
+msgid "Kontaktujte nás, těšíme se na Vás."
+msgstr ""
+
+#~ msgid "Detail"
+#~ msgstr "Detail"
+
+#~ msgid "Kontaktujte nás prosím"
+#~ msgstr "Please contact us"
+
+#~ msgid "IČO:"
+#~ msgstr "Company ID:"
+
+#~ msgid "Vytvořil"
+#~ msgstr "Created by"
+
+#~ msgid "Kontaktujte nás prosím!"
+#~ msgstr "Please contact us"

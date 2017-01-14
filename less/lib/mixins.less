@@ -1,0 +1,32 @@
+// clearfix
+.clearfix {
+  zoom:1;
+  &:before, &:after{ content:""; display:table; }
+  &:after { clear: both; }
+}
+
+// to hide informative headlines or so one
+.dumb_only {
+	position: fixed;
+	top: -200px;
+	left: -200px;	
+}
+
+// show quickly before or after
+.show {
+    content:"";
+    display:block;
+}
+
+// absolutka
+.absolut {
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+// pixel density above 1.5 - use like this: @media @retina { ... }
+@retina: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+         ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+         ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+         ~"only screen and (min-device-pixel-ratio: 1.5)";
