@@ -10,16 +10,32 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section { display: block; }
 body { line-height: 1; }
-ol, ul { list-style: none; }
 blockquote, q { quotes: none; }
 blockquote:before, blockquote:after,
 q:before, q:after { content: ''; content: none; }
 table { border-collapse: collapse; border-spacing: 0; }
 a { color: inherit; text-decoration: none; }
 .clear { clear: both; }
+ul,
+ol,
+header ol,
+header ul,
+header li,
+div.topSlick ol,
+div.topSlick ul,
+div.topSlick li,
+article.boxes ol,
+article.boxes ul,
+article.boxes li,
+div.slide ol,
+div.slide ul,
+div.slide li{
+    list-style: none;
+}
+

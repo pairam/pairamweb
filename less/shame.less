@@ -1,0 +1,125 @@
+#people .slide .gallery li:before {
+    content: "";
+    display: block;
+    height: 40px;
+    width: 40px;
+    z-index: 10;  
+    position: absolute;
+    background: url('../images/corner_black_small.png');
+}
+
+.refGallery {
+    float: left;
+    margin-top:0px;
+    padding-top: 0px;
+}
+
+.refGallery > ul.gallery {
+    margin-top: 0px !important;
+}
+
+.shortText h1,
+.shortText h2,
+.shortText h3,
+.shortText h4,
+.shortText h5,
+.shortText h6,
+.inner.content .contentRef h1,
+.inner.content .contentRef h2,
+.inner.content .contentRef h3,
+.inner.content .contentRef h4,
+.inner.content .contentRef h5,
+.inner.content .contentRef h6 {
+    font-size: inherit !important;
+}
+
+.shortText h1,
+.inner.content .contentRef h1 {
+    font-size: 2em  !important;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.shortText h2,
+.inner.content .contentRef h2 {
+    font-size: 1.5em !important;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.shortText h3,
+.inner.content .contentRef h3{
+    font-size: 1.17em !important;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.shortText h4,
+.inner.content .contentRef h4 {
+    margin-top: 1.33em !important;
+    margin-bottom: 1.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.shortText h5,
+.inner.content .contentRef h5 {
+    font-size: .83em !important;
+    margin-top: 1.67em;
+    margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.shortText h6,
+.inner.content .contentRef h6 {
+    font-size: .67em !important;
+    margin-top: 2.33em;
+    margin-bottom: 2.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+article .obsah p {
+    line-height: 1.3em; 
+    font-size: 1.2em; 
+    font-family: 'Roboto', sans-serif;
+}
+
+article .obsah p.big {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    line-height: 1.3em;
+}
+
+/* Skrytí světlého pruhu nad patičkou na hlavní stránce */
+footer {
+    margin-top: -14px;
+}
+
+/* Skrytí světlého pruhu na stránce Náš příběh */
+@media screen and (max-width: 720px) {
+    .ref .top h2 {
+        margin-top: -3px;
+        margin-left: -21px;
+    }
+}
+
+/* Přidání šipek k přepínání referencí */
+#reference span.prev::before {
+    content: "< ";
+}

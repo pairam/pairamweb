@@ -17,24 +17,34 @@
     top: 152px;
     z-index: 90;
     font-size: 2em;
-    left: 7%;
+    left: 2.5%;
     line-height: 0.875em;
-    color: @c_white2;
-    font-weight: 300;
+    color: #000000;
+    font-weight: 400;
+
     strong {
-        color: @c_yellow;
+        color: #000000;
     }
+
+    @media screen and (max-width: 1240px) {
+        font-size: 85%;
+    }
+
     @media screen and (max-width: 1100px) {
         top: 132px;
     }
+
     @media @middle{
         display: none;
-    }
-                    
+    }                    
 }
 
 .slick-slide {
     @media @smallest{
         max-height: 150px;
     }
+}
+
+.slick-workaround {
+    width: 100%!important;
 }

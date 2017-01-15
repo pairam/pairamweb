@@ -40,6 +40,7 @@ gulp.task('less', function() {
         .pipe(less({
           filename: 'style.less'
         }))
+        .pipe($.autoprefixer('last 3 version'))
         .on('error', $.notify.onError({
             title: 'LESS Failed',
             message: 'Error(s) occurred during compile!'
@@ -52,18 +53,16 @@ gulp.task('less', function() {
 });
 
 // SASS Build task
-gulp.task('lessbuild', function() {
+gulp.task('styles', function() {
     var s = $.size();
 
     return gulp.src('./less/style.less')
-        .pipe($.less({
-            style: 'compact'
-        }))
+        .pipe($.less())
         .pipe($.autoprefixer('last 3 version'))
         .pipe($.minifyCss({
             keepBreaks: false,
             aggressiveMerging: false,
-            advanced: false
+            advanced: true
         }))
         .pipe($.rename({
             suffix: '.min'
