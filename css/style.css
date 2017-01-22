@@ -884,6 +884,21 @@ body .wrapper {
   background: url('../images/image.png');
   background-size: 100% 100%;
 }
+.imgWrapperSmaller img:before {
+  content: '\A';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+.imgWrapperSmaller img:after:before {
+  opacity: 1;
+}
 .imgWrapperSmaller img {
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
