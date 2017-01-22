@@ -1481,6 +1481,11 @@ article.boxes .box p {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
+@media screen and (max-width: 720px) {
+  article.boxes .box p {
+    min-height: 1px;
+  }
+}
 article.boxes .box p strong {
   font-family: 'Lora', serif;
   font-weight: 700;
