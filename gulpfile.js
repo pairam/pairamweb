@@ -1,44 +1,21 @@
 var gulp = require('gulp'),
     $ = require('gulp-load-plugins')(),
     prettify = require('gulp-jsbeautifier'),
+    uglify = require('gulp-uglify'),
     runSequence = require('run-sequence'),
     sourcemaps = require('gulp-sourcemaps'),
+    rename = require('gulp-rename'),
     less = require('gulp-less');
 
-// minify JS
-gulp.task('minify-js', function() {
-    gulp.src('js/src/*.js')
-        .pipe($.uglify())
-        .pipe(gulp.dest('./js/'));
-});
+// Gulp debug tool + usage -> .pipe(uglify().on('error', gutil.log))
+var gutil = require('gulp-util');
 
-// minify CSS
-gulp.task('minify-css', function() {
-    gulp.src(['./styles/**/*.css', '!./styles/**/*.min.css'])
-        .pipe($.rename({
-            suffix: '.min'
-        }))
-        .pipe($.minifyCss({
-            keepBreaks: true
-        }))
-        .pipe(gulp.dest('./styles/'))
-        .pipe(gulp.dest('./_build/css/'));
-});
-
-// concat files
-gulp.task('concat', function() {
-    gulp.src('./js/*.js')
-        .pipe($.concat('scripts.js'))
-        .pipe(gulp.dest('./_build/'));
-});
-
-// SASS task, will run when any SCSS files change & BrowserSync
-// will auto-update browsers
+// LESS task
 gulp.task('less', function() {
     return gulp.src('./less/style.less')
         .pipe(sourcemaps.init())
         .pipe(less({
-          filename: 'style.less'
+            filename: 'style.less'
         }))
         .pipe($.autoprefixer('last 3 version'))
         .on('error', $.notify.onError({
@@ -52,29 +29,68 @@ gulp.task('less', function() {
         }));
 });
 
+// minify CSS
+gulp.task('minify-css', ['less'], function() {
+    gulp.src(['./css/style.css'])
+        .pipe($.autoprefixer('last 3 version'))
+        .pipe($.minifyCss({
+            keepBreaks: false,
+            advanced: false, 
+            aggressiveMerging: false
+        }))
+        .pipe($.rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('./css/'));
+});
+
 // SASS Build task
 gulp.task('styles', function() {
     var s = $.size();
 
     return gulp.src('./less/style.less')
-        .pipe($.less())
-        .pipe($.autoprefixer('last 3 version'))
-        .pipe($.minifyCss({
-            keepBreaks: false,
-            aggressiveMerging: false,
-            advanced: true
+    .pipe($.less())
+    .pipe($.autoprefixer('last 3 version'))
+    .pipe($.minifyCss({
+        keepBreaks: false,
+        aggressiveMerging: false,
+        advanced: false
+    }))
+    .pipe($.rename({
+        suffix: '.min'
+    }))
+    .pipe(gulp.dest('./css'))
+    .pipe(s)
+    .pipe($.notify({
+        onLast: true,
+        message: function() {
+            return 'Total CSS size ' + s.prettySize;
+        }
+    }));
+});
+
+// concat files
+gulp.task('concat', function() {
+    gulp.src('./js/src/*.js')
+        .pipe($.concat('scripts.js'))
+        .pipe(gulp.dest('./js/dist/'));
+});
+
+// minify JS
+gulp.task('minify-js', ['concat'], function() {
+    gulp.src('./js/dist/scripts.js')
+        .pipe($.uglify({
+            mangle: false
         }))
-        .pipe($.rename({
-            suffix: '.min'
+        .pipe(rename({
+            basename: "scripts",
+            suffix: ".min",
+            extname: ".js"
         }))
-        .pipe(gulp.dest('./css'))
-        .pipe(s)
+        .pipe(gulp.dest('./js/dist/'))
         .pipe($.notify({
-            onLast: true,
-            message: function() {
-                return 'Total CSS size ' + s.prettySize;
-            }
-        }));
+            message: 'Scripts task complete', onLast: true
+        }))
 });
 
 // BUGFIX: warning: possible EventEmitter memory leak detected. 11 listeners added.
@@ -83,14 +99,9 @@ require('events').EventEmitter.prototype._maxListeners = 100;
 // default task to be run with `gulp` command
 // this default task will run BrowserSync & then use Gulp to watch files.
 // when a file is changed, an event is emitted to BrowserSync with the filepath.
-gulp.task('default', ['less', 'minify-css'], function() {
-    gulp.watch('less/**/*.less', function(file) {
-        if (file.type === "changed") {
-            reload(file.path);
-        }
-    });
-    gulp.watch(['js/src/*.js'], ['minify-js']);
-    gulp.watch('less/**/*.less', ['less', 'minify-css']);
+gulp.task('default', ['concat', 'minify-js', 'less', 'minify-css'], function() {
+    gulp.watch(['js/src/*.js'], ['concat', 'minify-js']);
+    gulp.watch(['less/**/*.less'], ['less', 'minify-css']);
 });
 
 gulp.task('prettify', function() {

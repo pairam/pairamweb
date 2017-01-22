@@ -106,8 +106,8 @@
         </footer>
 </div>
         <!-- scripts -->
-        <script src="<?php bloginfo('template_url'); ?>/js/compiled-dist.js"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/gmaps.js"></script>
+        <script src="<?php bloginfo('template_url'); ?>/js/dist/scripts.min.js"></script>
+	    <!--<script src="<?php bloginfo('template_url'); ?>/js/dist/gmaps.js"></script>-->
         <script>
             // Landing page - schování záložky career v anglické verzi
             if ($(location).attr('href').indexOf("/en") >= 0) {

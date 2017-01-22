@@ -4,7 +4,7 @@
 
 // Rest
 
-;article {
+article {
     .obsah {
         max-width: 1100px;
         padding-bottom: 40px;
@@ -110,7 +110,7 @@
                 }
 
                 @media screen and (max-width: 1500px) {
-                    padding: 30px 20px 27px;
+                    padding: 20px 20px 17px;
                     margin-top: -105px;
 
                     strong {
@@ -389,10 +389,6 @@
                         height: auto;
                         padding-bottom: 12px;
                     }
-        
-                    &:first-of-type {
-                        margin-left: 0;
-                    }
                 }
             }
         
@@ -483,7 +479,7 @@
                         list-style-type: decimal;
                         padding-left: 20px;
                     }
-                
+
                     .name {
                         color: @c_white2;
                         .loraBold;
@@ -776,4 +772,61 @@
 
 #ContainerClanky {
     padding-top: 40px;
+}
+
+.about-us-headline {
+    color: @c_white2;
+    .loraBold;
+    display: block;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 18px;
+    font-size: 3em;
+}
+
+.caret-down {
+    &:after {
+        content: "";
+        width: 20px;
+        height: 11px;
+        background: url("../images/caret.png");
+        background-repeat: no-repeat;
+        transition: all .5s;
+        position: absolute;
+        right: 0;
+        margin: 16px 20px 0 0;
+    }
+}
+
+.caret-up {
+    &:after {
+        content: "";
+        width: 20px;
+        height: 11px;
+        background: url("../images/caret.png");
+        background-repeat: no-repeat;
+        transform: rotate(-180deg);
+        transition: all .5s;
+        position: absolute;
+        right: 0;
+        margin: 16px 20px 0 0;
+    }
+}
+
+.people-visible {
+    @media @middle {
+        height: auto!important;
+        transition: height 2s linear 1s;
+    }
+}
+
+.people-hidden {
+    @media @middle {
+        height: 0!important;
+        transition: height 2s linear 1s;
+
+        .name {
+            opacity: 0!important;
+        }
+    }
 }

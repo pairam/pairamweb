@@ -5,13 +5,13 @@
     @c_gray: #353535;
     @c_gray2: #252525;
 
-@middle: ~"screen and (max-width: 720px)";
-@620: ~"screen and (max-width: 620px)";
 @smallest: ~"screen and (max-width: 420px)";
+@620: ~"screen and (max-width: 620px)";
+@middle: ~"screen and (max-width: 720px)";
 
 
 // Fonts
-@import url(http://fonts.googleapis.com/css?family=Lora:700|Roboto:300,700&subset=latin,latin-ext);
+@import url('https://fonts.googleapis.com/css?family=Lora:700|Roboto:300,700&subset=latin,latin-ext');
 
 .light {
     font-family: 'Roboto', sans-serif;
@@ -28,7 +28,7 @@
     font-weight: 700;
 }
 
-.mobilemobile {
+.mobilemobile, .desktop-hidden {
     display: none !important;
 
     @media @middle {
@@ -556,6 +556,7 @@ body {
 
 .imgWrapperSmaller {
     position: relative;
+    overflow: hidden;
     
     &:before {
         .show;
@@ -567,6 +568,18 @@ body {
         position: absolute;
         background: url('../images/image.png');
         background-size: 100% 100%;
+    }
+
+    img {
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        transition: all 1s ease;
+    }
+
+    img:hover {
+        transform: scale(1.25,1.25);
     }
 }
 
@@ -602,4 +615,8 @@ body {
     #fancybox-right {
         right: -65px;
     } 
+}
+
+.services .imgWrapperSmaller {
+    display: inline-block;
 }

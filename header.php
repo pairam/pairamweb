@@ -9,7 +9,7 @@
                 <meta name="robots" content="all">
 		<meta name="keywords" content="návrhy osvětlení, umělecká svítidla, design, realizace osvětlení" />
 		
-		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/css/style.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/css/style.min.css" />
 		<script type="text/javascript">
 			var site_url = '<?php bloginfo('url'); ?>';
 		</script>

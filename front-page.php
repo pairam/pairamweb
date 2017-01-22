@@ -109,8 +109,9 @@ get_header();
                                     </div>
                                 </div>
                                 <a class="anchor" id="peoplea"></a>
+                                <h2 id="onasSwitch" class="about-us-headline desktop-hidden">O nás</h2>
                                 <div id="people" class="one">
-                                    
+
                                     <!--<h2 class="mobilemobile"><?php the_field('nadpis_people'); ?></h2>-->
                                     <?php 
                                     if( get_field('lide') ){
@@ -120,14 +121,14 @@ get_header();
                                             <?php $report .= '<li title="'.get_sub_field('jmeno').'" data-id='.$k++.'>'.wp_get_attachment_image( get_sub_field('prepinac'), 'galPeople').'</li>';?>
                                         <?php } ?>
                                     <?php } ?>
-                                    
+
                                     <?php 
                                     if( get_field('lide') ){
                                         while( has_sub_field('lide') ) { ?> 
                                             <div class="slide">
                                                 <div class="text">
                                                     <div class="rotate">
-                                                        <div class="info">
+                                                        <div id="o-nas-toggle" class="info">
                                                             <div class="before"></div>
                                                             <span class="name"><?php the_sub_field('jmeno'); ?> / <span class="position"><?php the_sub_field('pozice'); ?></span></span>
                                                             <p>
