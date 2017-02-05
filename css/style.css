@@ -85,6 +85,7 @@
   float: left;
   height: 100%;
   min-height: 1px;
+  overflow: hidden;
 }
 .slick-slide img {
   display: block;
@@ -1238,7 +1239,7 @@ header #menu-prvni-menu li .sub-menu li:after {
   display: none;
 }
 header .menus {
-  margin-top: 56px;
+  margin-top: 39px;
   float: right;
 }
 @media screen and (max-width: 1460px) {
@@ -1477,9 +1478,14 @@ article.boxes .box p {
   color: black;
   margin-bottom: 30px;
   font-size: 1.3125em;
-  min-height: 100px;
+  min-height: 80px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+}
+@media screen and (min-width: 1355px) {
+  article.boxes .box p {
+    min-height: 100px;
+  }
 }
 @media screen and (max-width: 720px) {
   article.boxes .box p {
@@ -1760,7 +1766,6 @@ article#aboutus .bottomSlick .text .rotate {
 }
 @media screen and (max-width: 1280px) {
   article#aboutus .bottomSlick .text .rotate {
-    overflow-y: scroll;
     height: 530px;
   }
 }
@@ -2107,6 +2112,7 @@ article#reference .bottom .arrow {
   font-weight: 700;
   display: block;
   text-align: left;
+  padding-top: 20px;
   margin-bottom: 20px;
   margin-left: 18px;
   font-size: 3em;
@@ -2139,6 +2145,7 @@ article#reference .bottom .arrow {
 }
 @media screen and (max-width: 720px) {
   .people-visible {
+    display: block!important;
     height: auto!important;
     -webkit-transition: height 2s linear 1s;
             transition: height 2s linear 1s;

@@ -79,6 +79,7 @@ gulp.task('concat', function() {
 // minify JS
 gulp.task('minify-js', ['concat'], function() {
     gulp.src('./js/dist/scripts.js')
+        .pipe(uglify().on('error', gutil.log))
         .pipe($.uglify({
             mangle: false
         }))

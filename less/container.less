@@ -157,8 +157,8 @@ article {
                 min-height: 80px;
                 .light;
 
-                @media @wide {
-                    min-height: 1px;
+                @media @hdready {
+                    min-height: 100px;
                 }
 
                 @media @middle {
@@ -439,7 +439,6 @@ article {
                 .rotate {
                     padding-top: 100px;
                     z-index: 2;
-                    //overflow: hidden;
                     position: relative;
                     width: 105%;
                 
@@ -448,7 +447,6 @@ article {
                     }
                 
                     @media screen and (max-width: 1280px) {
-                        overflow-y: scroll;
                         height: 530px;
                     }
                 
@@ -787,6 +785,7 @@ article {
     .loraBold;
     display: block;
     text-align: left;
+    padding-top: 20px;
     margin-bottom: 20px;
     margin-left: 18px;
     font-size: 3em;
@@ -823,6 +822,7 @@ article {
 
 .people-visible {
     @media @middle {
+        display: block!important;
         height: auto!important;
         transition: height 2s linear 1s;
     }

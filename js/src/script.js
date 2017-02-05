@@ -1,4 +1,11 @@
 jQuery(document).ready(function ($) {
+    var isSliderActive = 0;
+    var w = 0;
+
+    $(window).load(function() {
+        w = $(window).width();
+    });
+
     // checks for support of svg, then converts selected svgs into paths
     // after you change format of your template to PHP delete the code below
     // and in HTML replace path to image by this piece of code (example)
@@ -26,6 +33,30 @@ jQuery(document).ready(function ($) {
         }, 'xml');
     });
     
+    function initialize() {
+        var mapCanvas = document.getElementById('map-canvas');
+        var myLatlng = new google.maps.LatLng(50.076638, 14.510277);
+        var center = new google.maps.LatLng(50.076344, 14.498112);
+        var mapOptions = {
+            center: center,
+            scrollwheel: false,
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var image = {
+            url: site_url + '/wp-content/themes/theme/images/marker.png',
+            //origin: new google.maps.Point(-108, 0),
+            anchor: new google.maps.Point(25, 50),
+        };
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            icon: image,
+            title: 'Pairam Solution s.r.o.'
+        });
+    }
+
     // smooth scroll
     $('a[href^="#"]').on('click', function (e) {
         e.preventDefault();
@@ -62,91 +93,127 @@ jQuery(document).ready(function ($) {
     function replaceAll() { traverse(document.body); }
     replaceAll();
     
-    $('.slider').slick({
-        infinite: true,
-        slidesToShow: 1,
-        pauseOnHover: false,
-        slidesToScroll: 1,
-        prevArrow: '<span class="arrow prev"></span>',
-        nextArrow: '<span class="arrow next"></span>',
-        slide: 'img'
-    });
-    
-    if($(window).width()>720) {
-        $('#people').on('init', function(slick){
-            name();
-            setTimeout(function(){
+    var constructSlider = function () {
+
+        $('#images-slider').slick({
+            infinite: true,
+            slidesToShow: 1,
+            pauseOnHover: false,
+            slidesToScroll: 1,
+            prevArrow: '<span class="arrow prev"></span>',
+            nextArrow: '<span class="arrow next"></span>',
+            slide: 'img'
+        });
+
+        $('#people').on('init', function(slick) {
+            setTimeout(function() {
                 $('#blackCover').hide();
                 $('.topSlick .control li:first-child').trigger('click');
-            },2000);
-          });
-        
+            }, 2000);
+        });
+
         $('#people').slick({
             infinite: true,
             slidesToShow: 1,
             pauseOnHover: false,
             dots: true,
-            draggable: false, 
+            draggable: false,
             slidesToScroll: 1,
             prevArrow: '<span class="arrow prev"></span>',
             nextArrow: '<span class="arrow next"></span>',
+            responsive: [
+                {
+                    breakpoint: 720,
+                    settings: "unslick",
+                },
+            ]
         });
-    
-        $('#reference .bottom').slick({
+
+        $('#reference-slider').slick({
             infinite: true,
             slidesToShow: 1,
             pauseOnHover: false,
-            draggable: false, 
+            draggable: false,
             slidesToScroll: 1,
             prevArrow: '<span class="arrow prev ref"></span>',
             nextArrow: '<span class="arrow next ref"></span>',
+            responsive: [
+                {
+                    breakpoint: 720,
+                    settings: "unslick",
+                },
+            ]
         });
-        
-        if($('.single-reference .top .gallery .image').length>6) {
+
+        if ($('.single-reference .top .gallery .image').length > 6) {
             $('.single-reference .top .gallery').slick({
                 infinite: true,
                 slidesToShow: 6,
                 arrows: false,
                 pauseOnHover: false,
-                draggable: false, 
+                draggable: false,
                 slidesToScroll: 1,
                 autoplay: true,
                 respondTo: 'slider',
-                autoplaySpeed: 2000,
+                autoplaySpeed: 2000
             });
         }
-    }
+    };
 
-    if ($(window).width() < 720) {
+    var name = function () {
+        if ($(window).width() > 1400) {
+            $('#people .slide').each(function() {
+                var top = parseInt($('.rotate', this).css('paddingTop'));
+                var topAfter = parseInt($('.rotate', this).css('paddingTop')) + $('.rotate .info', this).outerHeight();
+                var width = $('.text', this).width() + 583;
+                $('.text .info .before', this).width(width - top - 52 - 7);
+                $('.text .info .after', this).width(width - topAfter - 4 - 4);
+            });
+        }
+    };
+
+    var peopleToggle = function () {
         $("#onasSwitch").addClass("caret-down");
         $("#people").addClass("people-hidden");
+    };
 
-        $("#onasSwitch").click(function() {
-            $(this).toggleClass("caret-down caret-up");
-            $("#people").toggleClass("people-hidden people-visible");
-        });
+    $("#onasSwitch").click(function() {
+        $(this).toggleClass("caret-down caret-up");
+        $("#people").toggleClass("people-hidden people-visible");
+    });
+
+    if ($(window).width() < 719) {
+        peopleToggle();
+        $("#images-slider").slick();
     }
     
-    $('article#aboutus .bottomSlick #who .text .rotate, article#aboutus .bottomSlick #story .text .rotate, article#aboutus .bottomSlick #career .text .rotate').niceScroll();
-    function name() {
-    
-        if($(window).width()>1400) {
-            $('#people .slide').each(function(){
-                var top = parseInt($('.rotate',this).css('paddingTop'));
-                var topAfter = parseInt($('.rotate',this).css('paddingTop'))+$('.rotate .info',this).outerHeight();
-                var width = $('.text',this).width()+583;
-                $('.text .info .before',this).width(width-top-52-7);
-                $('.text .info .after',this).width(width-topAfter-4-4);
-            });
+    if ($(window).width() >= 720) {
+        constructSlider();
+        name();
+        google.maps.event.addDomListener(window, 'load', initialize);
+    }
+
+    $(window).resize(function() {
+        if (w != $(window).width()) {
+
+            if($(window).width() <= 719) {
+                $("#images-slider").slick();
+                peopleToggle();
+            } else {
+                constructSlider();
+                name();
+                google.maps.event.addDomListener(window, 'load', initialize);
+            }
+
+            w = $(window).width();
+            delete w;
         }
-    }
+    });
+
+    //$('article#aboutus .bottomSlick #story .text .rotate, article#aboutus .bottomSlick #career .text .rotate').niceScroll();
     
     $('#openMenu').click(function (){
         $('#menuMobile').slideToggle();
-    });
-    
-    $(window).resize(function(){
-        name();
     });
     
     $('.one .position span').click(function(){
@@ -164,9 +231,12 @@ jQuery(document).ready(function ($) {
     }
     
     $('.topSlick .control li').on('click',function(){
+        
         $('#aboutus .topSlick .control li').removeClass('active');
         $(this).addClass('active');
+        
         var id = $(this).attr('data-id');
+        
         $('#aboutus .topSlick .title h2').hide();
         $('#aboutus .topSlick .title h2.'+id).show();
         $('#aboutus .bottomSlick .one').hide();
@@ -215,6 +285,8 @@ jQuery(document).ready(function ($) {
             }
         }, 3000);
     });
+
+    // Menu controller
     
     $('#menu-prvni-menu li:nth-child(2) .sub-menu li:first-child a').click(function(){
         if($('body').hasClass('home')) {
@@ -282,24 +354,3 @@ jQuery(document).ready(function ($) {
         }, 2010);
     }
 });
-
-/*
-    $('#menu-prvni-menu li:nth-child(3) .sub-menu li:nth-child(4) a').click(function(){
-        if($('body').hasClass('home')) {
-            $('html, body').stop().animate({
-                'scrollTop': $('#onas').offset().top
-            }, 900, 'swing',function (){
-                $('#aboutus .control li:nth-child(4)').trigger('click');
-            });
-        } else {
-            window.location.href = window.location.protocol + "//" + window.location.host + "/"+"?link=4";
-        } 
-    });
-    
-    if (window.location.href.indexOf("?link=4") > -1) {
-        $('html, body').scrollTop($('#onas').offset().top);
-        setTimeout(function(){
-            $('#aboutus .control li:nth-child(4)').trigger('click');
-        }, 2010);
-    }
-*/

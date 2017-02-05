@@ -10,7 +10,7 @@ get_header();
         <div class="infoText">
             <?php the_field('text_na_slideru'); ?>
         </div>
-        <div class="slider">
+        <div id="images-slider" class="slider construct-slider">
             <?php 
             if( get_field('slidery') ){
                 while( has_sub_field('slidery') )	{ 
@@ -110,7 +110,7 @@ get_header();
                                 </div>
                                 <a class="anchor" id="peoplea"></a>
                                 <h2 id="onasSwitch" class="about-us-headline desktop-hidden">O nás</h2>
-                                <div id="people" class="one">
+                                <div id="people" class="one construct-slider">
 
                                     <!--<h2 class="mobilemobile"><?php the_field('nadpis_people'); ?></h2>-->
                                     <?php 
@@ -214,7 +214,7 @@ get_header();
                         </div>
                     </div>
                 </div>
-                <div class="bottom">
+                <div id="reference-slider" class="construct-slider bottom">
                     <?php 
                     $args2 = array(
                         'post_type' => 'reference',
