@@ -171,7 +171,7 @@ get_header();
                                         </div>
                                     </div>
                                 <?php } ?>
-                                <div id="career" class="one">
+                                <div id="career" class="one mobile-hidden">
                                     <!--<h2 class="mobilemobile"><?php the_field('nadpis_career'); ?></h2>-->
                                     <div class="text">
                                         <div class="rotate">

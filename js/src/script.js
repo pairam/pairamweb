@@ -207,7 +207,6 @@ jQuery(document).ready(function ($) {
                 if ($("#people").hasClass("people-hidden") === true) {
                     removePeopleToggle();
                 }
-                //constructSlider();
                 name();
                 google.maps.event.addDomListener(window, 'load', initialize);
             }
@@ -216,8 +215,6 @@ jQuery(document).ready(function ($) {
             delete w;
         }
     });
-
-    //$('article#aboutus .bottomSlick #story .text .rotate, article#aboutus .bottomSlick #career .text .rotate').niceScroll();
     
     $('#openMenu').click(function (){
         $('#menuMobile').slideToggle();

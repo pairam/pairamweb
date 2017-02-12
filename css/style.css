@@ -271,6 +271,14 @@ div.slide li {
     display: block !important;
   }
 }
+.mobile-hidden {
+  display: block!important;
+}
+@media screen and (max-width: 720px) {
+  .mobile-hidden {
+    display: none!important;
+  }
+}
 strong {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
