@@ -177,6 +177,10 @@ jQuery(document).ready(function ($) {
         $("#people").addClass("people-hidden");
     };
 
+    var removePeopleToggle = function() {
+        $("#people").removeClass("people-hidden");
+    };
+
     $("#onasSwitch").click(function() {
         $(this).toggleClass("caret-down caret-up");
         $("#people").toggleClass("people-hidden people-visible");
@@ -200,7 +204,10 @@ jQuery(document).ready(function ($) {
                 $("#images-slider").slick();
                 peopleToggle();
             } else {
-                constructSlider();
+                if ($("#people").hasClass("people-hidden") === true) {
+                    removePeopleToggle();
+                }
+                //constructSlider();
                 name();
                 google.maps.event.addDomListener(window, 'load', initialize);
             }
