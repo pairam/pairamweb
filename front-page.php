@@ -78,7 +78,7 @@ get_header();
                         </div>
                         <ul class="control">
                             <li data-id="who"><?php echo __('Kdo jsme a co děláme','pairam') ?></li>
-                            <li data-id="people"><?php echo __('Lidé','pairam') ?></li>
+                            <li data-id="people" id="people-button"><?php echo __('Lidé','pairam') ?></li>
                             <?php if(!get_field('skryt_panel') && false) { ?>
                                 <?php echo __('Náš příběh','pairam') ?></li>
                             <?php } ?>

@@ -10,6 +10,7 @@
 		<meta name="keywords" content="návrhy osvětlení, umělecká svítidla, design, realizace osvětlení" />
 		
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/css/style.min.css" />
+		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 		<script type="text/javascript">
 			var site_url = '<?php bloginfo('url'); ?>';
 		</script>

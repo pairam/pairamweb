@@ -1435,14 +1435,9 @@ article.boxes .box h2 {
   box-sizing: border-box;
   color: #fcfcee;
 }
-@media screen and (max-width: 1640px) {
-  article.boxes .box h2 {
-    padding: 31px 20px 27px;
-  }
-}
 @media screen and (max-width: 1500px) {
   article.boxes .box h2 {
-    padding: 20px 20px 17px;
+    padding: 15px 20px 15px;
     margin-top: -105px;
   }
   article.boxes .box h2 strong {
@@ -1486,14 +1481,8 @@ article.boxes .box p {
   color: black;
   margin-bottom: 30px;
   font-size: 1.3125em;
-  min-height: 80px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-}
-@media screen and (min-width: 1355px) {
-  article.boxes .box p {
-    min-height: 100px;
-  }
 }
 @media screen and (max-width: 720px) {
   article.boxes .box p {

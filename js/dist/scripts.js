@@ -6140,6 +6140,13 @@ jQuery(document).ready(function ($) {
         constructSlider();
         name();
         google.maps.event.addDomListener(window, 'load', initialize);
+
+        $("#people-button").click(function() {
+            var windowWidth = $(window).width();
+            
+            $("#people.slick-slider .slick-active").css("width", windowWidth);
+            console.log("people-clicked");
+        });
     }
 
     $(window).resize(function() {
