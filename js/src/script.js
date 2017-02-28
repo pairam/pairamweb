@@ -157,7 +157,7 @@ jQuery(document).ready(function ($) {
                 respondTo: 'slider',
                 autoplaySpeed: 2000
             });
-        }
+        }        
     };
 
     var name = function () {
@@ -181,6 +181,40 @@ jQuery(document).ready(function ($) {
         $("#people").removeClass("people-hidden");
     };
 
+    var peopleSlideListControl = function() {
+        $('.topSlick .control li').on('click',function(){    
+            $('#aboutus .topSlick .control li').removeClass('active');
+            $(this).addClass('active');
+                
+            var id = $(this).attr('data-id');
+               
+            $('#aboutus .topSlick .title h2').hide();
+            $('#aboutus .topSlick .title h2.'+id).show();
+            $('#aboutus .bottomSlick .one').hide();
+            $('#aboutus .bottomSlick .one#'+id).show();
+        });
+
+        setTimeout(function() {    
+            $('#people .slide .gallery li').click(function(){
+                var id = $(this).attr('data-id');
+                $('#people .slick-dots li:nth-of-type('+id+') button').trigger('click');
+            });
+        }, 100);
+    };
+
+    // Slider reference buttons
+    function referenceButtons() {
+        setTimeout(function() {
+            $('#reference-slider .nextprev .prev').click(function(){
+                $('#reference-slider .prev.ref').trigger('click');
+            });
+
+            $('#reference-slider .nextprev .next').click(function(){
+                $('#reference-slider .next.ref').trigger('click');
+            });
+        }, 100);
+    };
+
     $("#onasSwitch").click(function() {
         $(this).toggleClass("caret-down caret-up");
         $("#people").toggleClass("people-hidden people-visible");
@@ -194,14 +228,16 @@ jQuery(document).ready(function ($) {
     if ($(window).width() >= 720) {
         constructSlider();
         name();
+        peopleSlideListControl();
         google.maps.event.addDomListener(window, 'load', initialize);
 
         $("#people-button").click(function() {
             var windowWidth = $(window).width();
             
             $("#people.slick-slider .slick-active").css("width", windowWidth);
-            console.log("people-clicked");
         });
+
+        referenceButtons();
     }
 
     $(window).resize(function() {
@@ -210,11 +246,14 @@ jQuery(document).ready(function ($) {
             if($(window).width() <= 719) {
                 $("#images-slider").slick();
                 peopleToggle();
-            } else {
+            }
+            else {
                 if ($("#people").hasClass("people-hidden") === true) {
                     removePeopleToggle();
                 }
                 name();
+                peopleSlideListControl();
+                referenceButtons();
                 google.maps.event.addDomListener(window, 'load', initialize);
             }
 
@@ -241,34 +280,7 @@ jQuery(document).ready(function ($) {
         $('#reference').remove();
     }
     
-    $('.topSlick .control li').on('click',function(){
-        
-        $('#aboutus .topSlick .control li').removeClass('active');
-        $(this).addClass('active');
-        
-        var id = $(this).attr('data-id');
-        
-        $('#aboutus .topSlick .title h2').hide();
-        $('#aboutus .topSlick .title h2.'+id).show();
-        $('#aboutus .bottomSlick .one').hide();
-        $('#aboutus .bottomSlick .one#'+id).show();
-    });
-    
-    
-    $('#people .slide .gallery li').click(function(){
-        var id = $(this).attr('data-id');
-        $('#people .slick-dots li:nth-of-type('+id+') button').trigger('click');
-    });
-    
     $('.wpcf7-form br').remove();
-    
-    $('#reference .bottom .nextprev .prev').click(function(){
-        $('#reference .bottom .arrow.prev.ref').trigger('click');
-    });
-    
-    $('#reference .bottom .nextprev .next').click(function(){
-        $('#reference .bottom .arrow.next.ref').trigger('click');
-    });
     
     $('input[type="number"]').each(function(){
         $(this).parent().prepend('<a class="up" data-id="up"  onclick="updateSpinner(this);"></a>');
