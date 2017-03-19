@@ -11,6 +11,7 @@ get_header();
         <div class="thumb smaller">
             <?php echo wp_get_attachment_image( get_field('uvodni_obr'), 'nahled2'); ?>
         </div>
+
         <article class="ref withoutPadd">
             <div class="top withoutBg padd">
                 <div class="inner">

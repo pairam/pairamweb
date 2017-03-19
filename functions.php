@@ -26,7 +26,8 @@ function webTitle() {
 }
 
 add_image_size( 'slide', 1920, 699, true); 
-add_image_size( 'nahled', 1920, 590, true); 
+add_image_size( 'nahled', 1920, 590, true);
+add_image_size( 'news_hp', 800, 600, true); 
 add_image_size( 'nahled2', 1920, 345, true); 
 //add_image_size( 'reference', 146, 91, true); 
 add_image_size( 'reference', 107, 64, true); 

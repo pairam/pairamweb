@@ -204,6 +204,11 @@ get_header();
                     
                 </div>
             </article>
+
+            <article>
+                <?php echo do_shortcode('[add_posts category=novinky show=1 hpage=true]'); ?>
+            </article>
+
             <article id="reference">
                 
                 
@@ -249,6 +254,7 @@ get_header();
                     <?php } ?>  
                 </div>
             </article>
+
         </section>
 
 <?php get_footer(); ?>

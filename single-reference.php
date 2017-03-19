@@ -19,10 +19,24 @@ get_header();
             </div>
 
             <div class="inner content">
-                <span class="date"><?php echo __('Realizováno:','pairam') ?> <strong><?php the_field('datum_realizace'); ?></strong></span>
-                <span class="date"><?php echo __('Klient:','pairam') ?> <strong><?php the_field('klient'); ?></strong></span>
-                <span class="date"><?php echo __('Místo realizace:','pairam') ?> <strong><?php the_field('misto'); ?></strong></span>
-                
+            <div class="ref-info">
+                <div class="grid-row">
+                    
+                    <div class="grid-6">
+                        <span class="date"><?php echo __('Realizováno:','pairam') ?> <strong><?php the_field('datum_realizace'); ?></strong></span>
+                        <span class="date"><?php echo __('Místo realizace:','pairam') ?> <strong><?php the_field('misto'); ?></strong></span>
+                        <span class="date"><?php echo __('Klient:','pairam') ?> <strong><?php the_field('klient'); ?></strong></span>
+                    </div>
+
+                    <?php if(get_field('url_klienta')) { ?>
+                        <div class="grid-6">
+                            <a class="button" href="<?php the_field('url_klienta'); ?>" target="_blank">Web klienta</a>
+                        </div>
+                    <?php } ?>
+
+                </div>
+            </div>
+
                 <div class="contentRef">
                     <?php the_content(); ?>
                 </div>
