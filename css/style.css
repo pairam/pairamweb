@@ -3384,6 +3384,10 @@ footer {
     padding: 10px 0;
   }
 }
+.text-blok .button {
+  font-size: 1.5em;
+  min-width: 200px;
+}
 @media screen and (max-width: 720px) {
   .text-blok .button {
     display: block;

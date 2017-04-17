@@ -75,7 +75,7 @@ get_header();
                 </div>
                 <div class="clear"></div>
             </div>
-	</article>
+	   </article>
         <article id="reference">
             <!--<a href="<?php echo get_post_type_archive_link( 'reference' ); ?>" class="buttonWhite"><?php echo __('Reference','pairam') ?></a>-->
 
@@ -86,12 +86,11 @@ get_header();
                     </div>
                 </div>
             </div>
-            <div class="bottom">
+            <div class="bottom" id="reference-slider">
                 <?php $idcko = get_the_ID(); ?>
                 <?php 
                 $args2 = array(
                     'post_type' => 'reference',
-
                 );
                 $the_query2 = new WP_Query( $args2);
 
