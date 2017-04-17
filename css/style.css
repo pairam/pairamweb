@@ -249,6 +249,9 @@ div.slide ul,
 div.slide li {
   list-style: none;
 }
+.mt-10 {
+  margin-top: 10px!important;
+}
 .light {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;

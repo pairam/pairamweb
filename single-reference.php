@@ -23,14 +23,14 @@ get_header();
                 <div class="grid-row">
                     
                     <div class="grid-6">
-                        <span class="date"><?php echo __('Realizováno:','pairam') ?> <strong><?php the_field('datum_realizace'); ?></strong></span>
+                        <span class="date mt-10"><?php echo __('Realizováno:','pairam') ?> <strong><?php the_field('datum_realizace'); ?></strong></span>
                         <span class="date"><?php echo __('Místo realizace:','pairam') ?> <strong><?php the_field('misto'); ?></strong></span>
                         <span class="date"><?php echo __('Klient:','pairam') ?> <strong><?php the_field('klient'); ?></strong></span>
                     </div>
 
                     <?php if(get_field('url_klienta')) { ?>
                         <div class="grid-6">
-                            <a class="button" href="<?php the_field('url_klienta'); ?>" target="_blank">Web klienta</a>
+                            <a class="buttonWhite" href="<?php the_field('url_klienta'); ?>" target="_blank">Web klienta</a>
                         </div>
                     <?php } ?>
 
