@@ -252,6 +252,12 @@ div.slide li {
 .mt-10 {
   margin-top: 10px!important;
 }
+.ml-10 {
+  margin-left: 10px!important;
+}
+.ml-20 {
+  margin-left: 20px!important;
+}
 .light {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -468,6 +474,9 @@ a.anchor {
   -webkit-opacity: 1;
   -moz-opacity: 1;
   opacity: 1;
+}
+.buttonWhiteSmall {
+  min-width: 190px;
 }
 #order,
 #mailing {

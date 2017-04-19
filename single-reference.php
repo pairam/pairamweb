@@ -30,7 +30,7 @@ get_header();
 
                     <?php if(get_field('url_klienta')) { ?>
                         <div class="grid-6">
-                            <a class="buttonWhite" href="<?php the_field('url_klienta'); ?>" target="_blank">Web klienta</a>
+                            <a class="buttonWhite buttonWhiteSmall ml-20" href="<?php the_field('url_klienta'); ?>" target="_blank">Web klienta</a>
                         </div>
                     <?php } ?>
 
